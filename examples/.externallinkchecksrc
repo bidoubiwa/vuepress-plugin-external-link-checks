@@ -1,0 +1,14 @@
+{
+    "urls": [
+        "https://github.com/meilisearch/meilisearch-python",
+        "https://github.com/meilisearch/meilisearch",
+        "https://github.com/meilisearch/meilisearch-ruby",
+        "https://github.com/meilisearch/meilisearch-php",
+        "https://github.com/meilisearch/meilisearch-js",
+        "https://github.com/meilisearch/meilisearch-java",
+        "https://github.com/meilisearch/meilisearch-go",
+        "https://github.com/meilisearch/finding-rubygems",
+        "https://www.meilisearch.com/",
+        "https://docs.meilisearch.com/"
+    ]
+}
