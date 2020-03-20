@@ -6,6 +6,11 @@
   "bin": {
     "vuepress-external-link-check": "./cli.js"
   },
+  "scripts": {
+    "test": "mocha",
+    "style": "npx eslint .",
+    "style:fix": "npx eslint ."
+  },
   "repository": "https://github.com/bidoubiwa/vuepress-external-link-checks",
   "author": "Charlotte Vermandel",
   "license": "MIT",
@@ -15,11 +20,10 @@
     "chalk": "^3.0.0",
     "cheerio": "^1.0.0-rc.3",
     "commander": "^5.0.0",
-    "concat-stream": "^2.0.0",
-    "esm": "^3.2.25",
-    "xml2js": "^0.4.23"
+    "esm": "^3.2.25"
   },
   "devDependencies": {
+    "concat-stream": "^2.0.0",
     "chai": "^4.2.0",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",

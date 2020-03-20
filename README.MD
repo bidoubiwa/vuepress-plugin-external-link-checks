@@ -32,11 +32,13 @@ yarn add vuepress-external-link-check
 ## try out
 
 ```bash
+$ npm link
 $ npx vuepress-external-link-check -t test/vuepress -H docs.meilisearch.com
 ```
 or
 ```bash
 $ cd examples
+$ npm link
 $ ./docs.meilisearch.sh
 ```
 
@@ -52,15 +54,19 @@ $ ./docs.meilisearch.sh
 
 ## Test
 ```
-mocha
+yarn test
+```
+
+## Style
+```
+yarn style
+yarn style:fix
 ```
 
 ## TODO:
 
-- number of dead links
-- linter
 - publish on NPM
-- testing in vuepress env
 - add multilanguage links (/en/, /fr/)
 - add a hash checker on online version
 - stop process if a dead link was found
+- Promisify online version
