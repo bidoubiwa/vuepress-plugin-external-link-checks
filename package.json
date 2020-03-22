@@ -4,7 +4,7 @@
   "description": "Check for your vuepress dead links in other web pages",
   "main": "index.js",
   "bin": {
-    "vuepress-external-link-check": "./cli.js"
+    "vuepress-plugin-external-link-checks": "./cli.js"
   },
   "scripts": {
     "test": "mocha",

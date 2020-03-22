@@ -1,6 +1,8 @@
 const cheerio = require("cheerio")
 const chalk = require("chalk")
 const axios = require("axios")
+const { resolve } = require("path")
+const { existsSync, readFileSync } = require("fs")
 
 const log = (msg, color = "blue", label = "CHECK-DEAD-LINKS") => console.log(`\n${chalk.reset.inverse.bold[color](` ${label} `)} ${msg}`)
 
@@ -96,29 +98,48 @@ async function checkExternalLinks ({externalLinks, siteMap, local,  hostname})  
 }
 
 module.exports = (options, context) => {
+	let configFileOptions
+	let configFile
+	if (!options.configFile) {
+		configFile = resolve(process.cwd(), ".externallinkchecksrc")
+	} else {
+		configFile = resolve(process.cwd(), options.configFile)
+	}
+	if (configFile && existsSync(configFile)) {
+		let config = JSON.parse(readFileSync(configFile, "utf-8"))
+		configFileOptions = {...config, ...options }
+	}
+	else {
+		configFileOptions = { ...options }
+	}
+
 	const {
 		local = (options.online === true || options.online === "true" ) ? false : true,
 		urls = [],
 		hostname,
 		exclude
-	} = options
+	} = configFileOptions
+
 	return {
 		generated () {
 			try {
 				if (!hostname) {
-					let error = new Error("Not generating sitemap because required \"hostname\" option doesn't exist")
+					let error = new Error("Required \"hostname\" doesn't exist")
 					error.isCheckDeadLinkError = true
 					throw error
+				}
+				if (urls.length === 0) {
+					log("No urls were given","red")
 				}
 				try {
 					let test = new URL(`http://${hostname}`)
 					if (test.hostname !== hostname) {
-						let error = new Error("Not generating sitemap because required \"hostname\" is badly formatted")
+						let error = new Error("Required \"hostname\" is badly formatted")
 						error.isCheckDeadLinkError = true
 						throw error
 					}
 				} catch (_) {
-					let error = new Error("Not generating sitemap because required \"hostname\" is badly formatted")
+					let error = new Error("Required \"hostname\" is badly formatted")
 					error.isCheckDeadLinkError = true
 					throw error
 				}
@@ -178,7 +199,6 @@ module.exports = (options, context) => {
 				checkExternalLinks({ externalLinks: urls, siteMap, local,  hostname})
 			}
 			catch(e) {
-				// console.error(chalk.bold.red(error.message || error.msg || error))
 				log(e.message,"red")
 				if (!e.isCheckDeadLinkError) console.error(chalk.bold.red(e.stack))
 				process.exit(1)

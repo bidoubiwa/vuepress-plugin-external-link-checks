@@ -1,4 +1,4 @@
-# vuepress-external-link-check
+# vuepress-plugin-external-link-checks
 
 Given a list of external links, this package will test if all the links found in those external pages that match the vuepress website's hostname are still alive.
 
@@ -26,14 +26,65 @@ This package will fetch the HTML from all the `urls` given and retrieve all link
 ## Install
 
 ```bash
-yarn add vuepress-external-link-check
+yarn add vuepress-plugin-external-link-checks
 ```
 
-## try out
+## Getting started
+
+### Vuepress plugin
+in `config.js`
+```
+plugins: [
+    [ "external-link-checks" ,
+        { hostname: "docs.myhostname.com", "urls": [
+        "https://github.com/someGithub",
+        "https://www.myhostnamelanding.com/",
+        ]
+    }]
+]
+```
+
+You can also add a `.externallinkchecksrc` file at the root of your vuepress with the above configs.
+You can also create your own file, and store it whever you want in the project and just add the link in config.js using `configFile: "path/to/my/file"`
+
+### CLI
+
+#### With a config file
+Create a `.externallinkchecksrc` file
+```
+{
+    hostname: "docs.myhostname.com",
+    "urls": [
+        "https://github.com/someGithub",
+        "https://www.myhostnamelanding.com/",
+    ]
+}
+```
 
 ```bash
+$ vuepress-plugin-external-link-checks
+```
+
+#### With your custom config file
+
+```bash
+$ vuepress-plugin-external-link-checks -C myconfigfile.json
+```
+
+#### With CLI options
+
+```bash
+$ vuepress-plugin-external-link-checks -H docs.myhostname.com -u "https://github.com/someGithub,https://www.myhostnamelanding.com/"
+```
+
+
+## Try out
+
+
+```bash
+$ cd vuepress-plugin-external-link-checks
 $ npm link
-$ npx vuepress-external-link-check -t test/vuepress -H docs.meilisearch.com
+$ npx vuepress-plugin-external-link-checks -t test/vuepress -H docs.meilisearch.com
 ```
 or
 ```bash
