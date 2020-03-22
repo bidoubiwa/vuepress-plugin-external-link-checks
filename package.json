@@ -1,7 +1,7 @@
 {
-  "name": "vuepress-external-link-checks",
+  "name": "vuepress-plugin-external-link-checks",
   "version": "0.1.0",
-  "description": "Check for validity of vuepress links in other web pages",
+  "description": "Check for your vuepress dead links in other web pages",
   "main": "index.js",
   "bin": {
     "vuepress-external-link-check": "./cli.js"
