@@ -13,8 +13,11 @@ You can run the test against your local vuepress routing using the (soon to come
     - Comparing it with your online documentation.
 
 ### Locally
+
 When building your vuepress application a siteData file is generated which contains all the routes of your documentation.
 After fetching all HTML from the given `urls` list, this package will retrieve all links with the given `hostname` in the different fetched HTMLs. The urls found will be searched in the siteData file. If not present a warning will be raised. This means your link does not exists in your new build.
+
+This siteData is located here: `node_modules/@vuepress/core/.temp/internal/`
 
 ### Online
 
