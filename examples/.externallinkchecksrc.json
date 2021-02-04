@@ -23,6 +23,7 @@
         "https://github.com/meilisearch/meilisearch-digitalocean",
         "https://github.com/meilisearch/meilisearch-kubernetes",
         "https://github.com/meilisearch/docs-scraper",
+        "https://github.com/meilisearch/devrel",
         "https://www.meilisearch.com/",
         "https://docs.meilisearch.com/",
         "https://blog.meilisearch.com/42-hackathon/",
@@ -48,7 +49,9 @@
         "https://blog.meilisearch.com/whats-new-in-the-v0-9/",
         "https://blog.meilisearch.com/why-should-you-use-meilisearch-over-elasticsearch/",
         "https://blog.meilisearch.com/meilisearch-finds-rubygems/",
-        "https://blog.meilisearch.com/meilisearch-beta-release/"
-
+        "https://blog.meilisearch.com/meilisearch-beta-release/",
+        "https://dev.to/erlend_sh/meilisearch-in-production-taking-it-to-the-next-level-a2p",
+        "https://dev.to/meilisearch/how-to-implement-meilisearch-in-your-react-app-1m5e",
+        "https://dev.to/meilisearch/how-to-use-http-2-and-ssl-with-meilisearch-h4p"
     ]
 }
