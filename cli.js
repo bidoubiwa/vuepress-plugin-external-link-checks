@@ -16,7 +16,6 @@ program
 	)
 	.option("-C, --config-file [configFile]", "path to config file, by default looks for externallinkcheckrc at the root of the project")
 	.option("-s, --site-data [siteData]", "vuepress sitedata dir")
-// .option('-l, --local [isLocal]', 'Check for link in local documentation. If set to false, check in online', (val) => JSON.parse(val))
 	.option("-o, --online", "Check for link in online documentation. If not provided, check in local")
 	.parse(process.argv)
 
@@ -29,6 +28,7 @@ try {
 	let siteData
 	let configFile
 	let options
+
 	if (!program.configFile) {
 		configFile = resolve(process.cwd(), ".externallinkchecksrc")
 	} else {
@@ -36,12 +36,12 @@ try {
 	}
 	if (configFile && existsSync(configFile)) {
 		let config = JSON.parse(readFileSync(configFile, "utf-8"))
+
 		options = {...config, ...program }
 	}
 	else {
 		options = { ...program }
 	}
-
 	// Check for hostname
 	if (!options.hostname) {
 		let error = new Error("Missing hostname")
@@ -49,7 +49,7 @@ try {
 		throw error
 	}
 
-	if (!program.online) {
+	if (!options.online) {
 		let tempDir = options.siteData || ""
 
 		if (!tempDir) {
