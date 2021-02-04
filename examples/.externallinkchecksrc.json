@@ -1,6 +1,5 @@
 {
     "hostname": "docs.meilisearch.com",
-    "siteData": "../documentation/node_modules/@vuepress/core/.temp/internal/",
     "online": true,
     "urls": [
         "https://github.com/meilisearch/meilisearch-python",
