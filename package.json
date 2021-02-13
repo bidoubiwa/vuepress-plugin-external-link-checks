@@ -19,7 +19,7 @@
     "axios": "^0.21.1",
     "chalk": "^3.0.0",
     "cheerio": "^1.0.0-rc.3",
-    "commander": "^5.0.0",
+    "commander": "^7.0.0",
     "esm": "^3.2.25"
   },
   "devDependencies": {
