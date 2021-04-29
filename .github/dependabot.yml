@@ -1,0 +1,23 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: chai
+    versions:
+    - 4.3.1
+    - 4.3.3
+  - dependency-name: chalk
+    versions:
+    - 4.1.0
+  - dependency-name: commander
+    versions:
+    - 7.0.0
+    - 7.1.0
+  - dependency-name: mocha
+    versions:
+    - 8.3.0
